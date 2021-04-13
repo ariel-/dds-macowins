@@ -23,3 +23,6 @@ Ah, un requerimiento más: Macowins registra las ventas de estas prendas y neces
 “Cada venta tiene asociada las prendas que se vendieron, su cantidad y la fecha de venta.
 Las ventas pueden ser en efectivo o con tarjeta. En el caso que sea con tarjeta, tienen el mismo comportamiento que en efectivo (el cual no modifica el precio), sólo que se le aplica un recargo según la cantidad de cuotas seleccionadas (cantidad de cuotas * un coeficiente fijo + 0.01 del valor de cada prenda).”
 ___
+
+### Diagrama de clases
+![Diagrama](Macowins.svg)
