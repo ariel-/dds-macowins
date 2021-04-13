@@ -4,19 +4,25 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 public class Venta {
+  private final Collection<Prenda> prendas;
+  private final LocalDate fecha;
+
   public Venta(Collection<Prenda> prendas, LocalDate fecha) {
-
+    this.prendas = prendas;
+    this.fecha = fecha;
   }
 
-  public Venta() {
-
+  public LocalDate getFecha() {
+    return fecha;
   }
 
-  public int cantidadVendida() {
-    return 0;
+  int cantidadVendida() {
+    return prendas.size();
   }
 
-  public double precioVenta() {
-    return 0;
+  double precioVenta() {
+    return prendas.stream()
+                  .mapToDouble(Prenda::calculoPrecio)
+                  .sum();
   }
 }
