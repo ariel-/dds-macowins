@@ -4,25 +4,25 @@ import java.time.LocalDate;
 import java.util.Collection;
 
 public class Venta {
-  private final Collection<Prenda> prendas;
+  private final Collection<ItemVenta> items;
   private final LocalDate fecha;
 
-  public Venta(Collection<Prenda> prendas, LocalDate fecha) {
-    this.prendas = prendas;
+  public Venta(Collection<ItemVenta> items, LocalDate fecha) {
+    this.items = items;
     this.fecha = fecha;
   }
 
-  public LocalDate getFecha() {
-    return fecha;
+  public boolean esDeFecha(LocalDate unaFecha) {
+    return fecha.isEqual(unaFecha);
   }
 
   int cantidadVendida() {
-    return prendas.size();
+    return items.stream().mapToInt(ItemVenta::getCantidad).sum();
   }
 
   double precioVenta() {
-    return prendas.stream()
-                  .mapToDouble(Prenda::calculoPrecio)
+    return items.stream()
+                  .mapToDouble(ItemVenta::calculoPrecio)
                   .sum();
   }
 }

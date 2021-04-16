@@ -9,7 +9,7 @@ public class Macowins {
 
   public double ganancias(LocalDate dia) {
     return ventas.stream()
-                 .filter(venta -> venta.getFecha().isEqual(dia))
+                 .filter(venta -> venta.esDeFecha(dia))
                  .mapToDouble(Venta::precioVenta)
                  .sum();
   }
